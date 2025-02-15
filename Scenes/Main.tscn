@@ -1,6 +1,5 @@
 [gd_scene load_steps=10 format=4 uid="uid://nnjkpa1rm758"]
 
-[ext_resource type="Script" path="res://Main.gd" id="1_2jtuj"]
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_8t4tr"]
 [ext_resource type="PackedScene" uid="uid://b0wysm6c2nqgj" path="res://Characters/Player.tscn" id="2_ia34y"]
 [ext_resource type="Texture2D" uid="uid://cibcntstf71xs" path="res://assets/sokoban_tilesheet.png" id="3_nuk7a"]
