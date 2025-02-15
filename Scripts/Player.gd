@@ -1,6 +1,6 @@
 extends Area2D
 
-var animation_speed = 2
+var animation_speed = 2.5
 var moving = false
 var tile_size = 64
 var inputs = {
@@ -19,9 +19,14 @@ func _ready():
 func _unhandled_input(event):
 	if moving:
 		return
+	
 	for dir in inputs.keys():
-		if event.is_action_pressed(dir):
+		if(event.is_action_pressed(dir,true)):
 			move(dir)
+
+		
+			
+		
 			
 func move(dir):
 	ray.target_position = inputs[dir] * tile_size

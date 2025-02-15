@@ -1,22 +1,13 @@
-class_name FilterColor
+class_name FilterColor 
 
-enum Colors {
-	RED,
-	BLUE
-}
 
-static var colors: Dictionary = {
-	Colors.RED: Color(0.5, 0, 0, 0.4),
-	Colors.BLUE: Color(0, 0, 0.5, 0.4),
-}
-
-static var current_color: Colors = Colors.RED
+static var current_color: ColorsEnum.Colors = ColorsEnum.Colors.RED
 
 static func next() -> Color:
-	current_color = Colors.values()[(current_color + 1) % colors.size()]
+	current_color = ColorsEnum.Colors.values()[(current_color + 1) % ColorsEnum.colors.size()]
 	return current()
 
 static func current(name: bool = false) -> Variant:
 	if name:
 		return current_color
-	return colors[current_color]
+	return ColorsEnum.colors[current_color]
