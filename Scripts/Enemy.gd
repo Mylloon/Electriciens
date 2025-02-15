@@ -30,9 +30,7 @@ func _ready():
 		directions.append(inputs.keys()[alea])
 		directions_inv.append(inputs_inv.keys()[alea])
 
-	print(directions)
 	directions_inv.reverse()
-	print(directions_inv)
 
 	# Start timer for automatic movement
 	timer.wait_time = 1.5
@@ -42,14 +40,11 @@ func _ready():
 
 
 func _on_Timer_timeout():
-	print("here")
 	if !moving:
-		print("Je vais bouger")
 		move(directions_inv[dir] if inv else directions[dir])
 
 
 func next():
-	print(dir)
 	dir = (dir + 1) % directions.size()
 	if dir == 0:
 		inv = !inv

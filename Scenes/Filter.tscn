@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cwiqo77hqfgks"]
+[gd_scene load_steps=3 format=3 uid="uid://cwiqo77hqfgks"]
 
 [ext_resource type="Script" path="res://Scripts/Filter.gd" id="1_nct0j"]
+[ext_resource type="Script" path="res://Scenes/Signal.gd" id="1_pphpg"]
 
-[node name="Filter" type="Node2D"]
+[node name="Filter" type="Node2D" node_paths=PackedStringArray("caller")]
+script = ExtResource("1_pphpg")
+caller = NodePath("CanvasLayer/ColorRect")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
