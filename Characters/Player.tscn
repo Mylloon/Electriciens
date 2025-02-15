@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://b0wysm6c2nqgj"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_26y8w"]
-[ext_resource type="Texture2D" uid="uid://fn3ats00hpd7" path="res://assets/sokoban_character.png" id="2_47llq"]
+[ext_resource type="Texture2D" uid="uid://bmnjkhu5284l4" path="res://assets/gentil.png" id="2_kculk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tia2a"]
 size = Vector2(32, 32)
@@ -83,7 +83,7 @@ collision_mask = 6
 script = ExtResource("1_26y8w")
 
 [node name="Sprite2d" type="Sprite2D" parent="."]
-texture = ExtResource("2_47llq")
+texture = ExtResource("2_kculk")
 hframes = 6
 vframes = 4
 frame = 6

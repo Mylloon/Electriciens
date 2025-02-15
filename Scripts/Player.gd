@@ -43,17 +43,19 @@ func move(dir):
 		await tween.finished
 		moving = false
 
+func get_frozen_color() -> Color:
+	return Color(FilterColor.current(), 0.2)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("freeze"):
 		frozen = !frozen
 		if frozen:
 			self.set_collision_layer(0)
-			self.modulate = FilterColor.current()
+			self.modulate = get_frozen_color()
 		else:
 			self.set_collision_layer(collision)
 			self.modulate = Color.WHITE
 
 func _on_filter_change_color_filter() -> void:
 	if frozen:
-		self.modulate = FilterColor.current()
+		self.modulate = get_frozen_color()
