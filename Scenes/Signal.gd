@@ -11,4 +11,4 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _changeColorFilter():
-	emit_signal("changeColorFilter")
+	changeColorFilter.emit()

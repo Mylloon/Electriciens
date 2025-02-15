@@ -200,3 +200,5 @@ position = Vector2(92, 413)
 
 [node name="Enemy" parent="." instance=ExtResource("5_u1rcq")]
 position = Vector2(305, 330)
+
+[connection signal="changeColorFilter" from="Filter" to="Player" method="_on_filter_change_color_filter"]

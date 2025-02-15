@@ -8,6 +8,8 @@ var inputs = {"right": Vector2.RIGHT, "left": Vector2.LEFT, "up": Vector2.UP, "d
 
 @onready var ray = $RayCast2d
 
+var frozen := false
+@onready var collision := self.get_collision_layer()
 
 func _ready():
 	position = position.snapped(Vector2.ONE * tile_size)
@@ -26,7 +28,7 @@ func _unhandled_input(event):
 func move(dir):
 	ray.target_position = inputs[dir] * tile_size
 	ray.force_raycast_update()
-	if !ray.is_colliding():
+	if !ray.is_colliding() and !frozen:
 		#position += inputs[dir] * tile_size
 		var tween = get_tree().create_tween()
 		(
@@ -40,3 +42,18 @@ func move(dir):
 		$AnimationPlayer.play(dir)
 		await tween.finished
 		moving = false
+
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("freeze"):
+		frozen = !frozen
+		if frozen:
+			self.set_collision_layer(0)
+			self.modulate = FilterColor.current()
+		else:
+			self.set_collision_layer(collision)
+			self.modulate = Color.WHITE
+
+func _on_filter_change_color_filter() -> void:
+	if frozen:
+		self.modulate = FilterColor.current()

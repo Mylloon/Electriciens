@@ -128,6 +128,6 @@ func _physics_process(delta: float) -> void:
 		under_light = true
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if under_light:
 		print("Dans la viande")
