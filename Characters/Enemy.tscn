@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bw0ohybrcvdic"]
+[gd_scene load_steps=10 format=3 uid="uid://bw0ohybrcvdic"]
 
-[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_b5ua5"]
+[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_3b7xm"]
 [ext_resource type="Texture2D" uid="uid://fn3ats00hpd7" path="res://assets/sokoban_character.png" id="2_8wirh"]
+[ext_resource type="Texture2D" uid="uid://35jjcua20fvf" path="res://assets/torchlight.png" id="3_h72rc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tia2a"]
 size = Vector2(32, 32)
@@ -79,9 +80,12 @@ _data = {
 }
 
 [node name="Enemy" type="Area2D"]
-script = ExtResource("1_b5ua5")
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_3b7xm")
 
 [node name="Sprite2d" type="Sprite2D" parent="."]
+z_index = 1
 texture = ExtResource("2_8wirh")
 hframes = 6
 vframes = 4
@@ -100,3 +104,19 @@ libraries = {
 }
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Torch" type="PointLight2D" parent="."]
+position = Vector2(-1, 4)
+shadow_enabled = true
+texture = ExtResource("3_h72rc")
+texture_scale = 0.6
+
+[node name="CheckPlayer" type="RayCast2D" parent="Torch"]
+position = Vector2(1, -4)
+target_position = Vector2(17, 69)
+
+[node name="ZoneDetection" type="Area2D" parent="Torch"]
+collision_layer = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Torch/ZoneDetection"]
+polygon = PackedVector2Array(28, 15, 150, 157, 118, 175, 13, 178, -110, 163, -141, 146, -21, 13)
