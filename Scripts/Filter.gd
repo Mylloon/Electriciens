@@ -1,20 +1,22 @@
 extends ColorRect
 
+@onready var timer = $Timer
 
-@onready var timer = $Timer 
+
 func _ready() -> void:
 	self.color = FilterColor.current()
 	# Start timer for automatic movement
-	timer.wait_time = 3  
-	timer.one_shot = false  
-	timer.timeout.connect(_on_Timer_timeout)  
-	timer.start()  
-	
+	timer.wait_time = 3
+	timer.one_shot = false
+	timer.timeout.connect(_on_Timer_timeout)
+	timer.start()
+
 
 func _process(_delta: float) -> void:
 	pass
 	#if Input.is_action_just_pressed("changefilter"):
-		#self.color = FilterColor.next()
+	#self.color = FilterColor.next()
+
 
 func _on_Timer_timeout():
 	self.color = FilterColor.next()
