@@ -1,4 +1,5 @@
-extends Area2D
+class_name Player
+extends CharacterBody2D
 
 var animation_speed = 2.5
 var moving = false
