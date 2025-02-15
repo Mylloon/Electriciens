@@ -1,12 +1,13 @@
 extends ColorRect
 
 @onready var timer = $Timer
-signal changeColor()
+signal changeColor
+
 
 func _ready() -> void:
 	await get_tree().create_timer(1).timeout
 	emit_signal("changeColor")
-	
+
 	self.color = FilterColor.current()
 	# Start timer for automatic movement
 	timer.wait_time = 3

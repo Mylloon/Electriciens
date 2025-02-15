@@ -1,6 +1,6 @@
 class_name ColorsEnum
 
-enum Colors { RED, BLUE, GREEN}
+enum Colors { RED, BLUE, GREEN }
 
 static var colors: Dictionary = {
 	Colors.RED: Color(0.5, 0, 0, 0.4),
