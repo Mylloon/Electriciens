@@ -1,0 +1,8 @@
+Windows/*
+!Windows/.gitkeep
+
+Linux/*
+!Linux/.gitkeep
+
+Web/*
+!Web/.gitkeep
