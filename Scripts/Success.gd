@@ -12,6 +12,7 @@ func _physics_process(_delta: float) -> void:
 	if tile and tile.get_custom_data("coin"):
 		switcher.switch_scene("res://Scenes/LevelChooser.tscn")
 
+
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		switcher.switch_scene("res://Scenes/Pause.tscn")
