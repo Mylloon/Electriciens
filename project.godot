@@ -72,6 +72,7 @@ freeze={
 2d_physics/layer_2="Walls"
 2d_physics/layer_3="Ennemy"
 2d_physics/layer_4="Flashlight"
+2d_physics/layer_5="Coin"
 
 [rendering]
 

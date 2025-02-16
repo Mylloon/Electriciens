@@ -12,7 +12,7 @@ func _ready():
 	var callable = Callable(self, "changeVisibility")
 	caller.connect("changeColorFilter", callable)
 	randomize()  # Ensure randomness each run
-	set_cell(pos_test, 0, atlas_coord)
+	
 
 
 func changeVisibility():
