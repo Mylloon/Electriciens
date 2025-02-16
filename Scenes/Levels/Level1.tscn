@@ -1,27 +1,28 @@
-[gd_scene load_steps=13 format=4 uid="uid://ccupw27i4jg5t"]
+[gd_scene load_steps=14 format=4 uid="uid://ccupw27i4jg5t"]
 
 [ext_resource type="Script" path="res://Scripts/Success.gd" id="1_f12g2"]
 [ext_resource type="PackedScene" uid="uid://cwiqo77hqfgks" path="res://Scenes/Filter.tscn" id="2_6fcy8"]
 [ext_resource type="Texture2D" uid="uid://cibcntstf71xs" path="res://assets/sokoban_tilesheet.png" id="3_kiq4c"]
 [ext_resource type="Script" path="res://Scripts/TilesColor.gd" id="4_8g3kd"]
-[ext_resource type="PackedScene" uid="uid://b0wysm6c2nqgj" path="res://Characters/Player.tscn" id="5_on4ir"]
+[ext_resource type="PackedScene" uid="uid://bw0ohybrcvdic" path="res://Characters/Enemy.tscn" id="5_fwwfi"]
+[ext_resource type="PackedScene" uid="uid://baehv45yk77sc" path="res://Scenes/Utils/PlayerSpawner.tscn" id="5_t4343"]
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ceki0"]
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_11yfc"]
 polygon = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qaw53"]
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_nu57u"]
 polygon = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_j4bch"]
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ogivp"]
 polygon = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_r8fe6"]
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ofjg8"]
 polygon = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_j4a1o"]
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_234b7"]
 polygon = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_86ccq"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ovgsv"]
 texture = ExtResource("3_kiq4c")
 texture_region_size = Vector2i(64, 64)
 0:4/0 = 0
@@ -37,10 +38,10 @@ texture_region_size = Vector2i(64, 64)
 3:6/0 = 0
 3:7/0 = 0
 4:0/0 = 0
-4:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_j4bch")
+4:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_ogivp")
 4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 4:1/0 = 0
-4:1/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_r8fe6")
+4:1/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_ofjg8")
 4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 4:2/0 = 0
 4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
@@ -52,7 +53,7 @@ texture_region_size = Vector2i(64, 64)
 5:0/0 = 0
 5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 5:1/0 = 0
-5:1/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_j4a1o")
+5:1/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_234b7")
 5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 5:1/0/custom_data_0 = true
 5:2/0 = 0
@@ -120,8 +121,11 @@ texture_region_size = Vector2i(64, 64)
 11:7/0 = 0
 12:0/0 = 0
 12:1/0 = 0
+12:1/0/custom_data_1 = true
 12:2/0 = 0
+12:2/0/custom_data_1 = true
 12:3/0 = 0
+12:3/0/custom_data_1 = true
 12:4/0 = 0
 12:5/0 = 0
 12:6/0 = 0
@@ -132,7 +136,7 @@ texture_region_size = Vector2i(64, 64)
 3:0/0 = 0
 3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 3:1/0 = 0
-3:1/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_qaw53")
+3:1/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_nu57u")
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 3:2/0 = 0
 3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
@@ -142,7 +146,7 @@ texture_region_size = Vector2i(64, 64)
 1:2/0 = 0
 1:1/0 = 0
 2:1/0 = 0
-2:1/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_ceki0")
+2:1/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_11yfc")
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 2:2/0 = 0
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
@@ -155,7 +159,9 @@ physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 5
 custom_data_layer_0/name = "coin"
 custom_data_layer_0/type = 1
-sources/0 = SubResource("TileSetAtlasSource_86ccq")
+custom_data_layer_1/name = "laser"
+custom_data_layer_1/type = 1
+sources/0 = SubResource("TileSetAtlasSource_ovgsv")
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_f12g2")
@@ -183,7 +189,7 @@ tile_set = SubResource("TileSet_8q7wt")
 
 [node name="RED" type="TileMapLayer" parent="TileMap/walls" node_paths=PackedStringArray("caller")]
 use_parent_material = true
-tile_map_data = PackedByteArray("AAAMAAEAAAACAAEAAAALAAEAAAACAAEAAAAKAAIAAAACAAEAAAAJAAIAAAACAAEAAAAIAAMAAAACAAEAAAAHAAMAAAACAAEAAAABAAQAAAACAAEAAAA=")
+tile_map_data = PackedByteArray("AAAMAAEAAAACAAEAAAALAAEAAAACAAEAAAAKAAIAAAACAAEAAAAJAAIAAAACAAEAAAAIAAMAAAACAAEAAAAHAAMAAAACAAEAAAABAAQAAAACAAEAAAAEAAEAAAAMAAEAAAA=")
 tile_set = SubResource("TileSet_8q7wt")
 script = ExtResource("4_8g3kd")
 atlas_coord = Vector2i(2, 1)
@@ -210,7 +216,8 @@ pos_test = Vector2i(2, 8)
 color = 2
 caller = NodePath("../../../Filter")
 
-[node name="Player" parent="." instance=ExtResource("5_on4ir")]
-position = Vector2(92, 94)
+[node name="PlayerSpawner" parent="." instance=ExtResource("5_t4343")]
+position = Vector2(100, 69)
 
-[connection signal="changeColorFilter" from="Filter" to="Player" method="_on_filter_change_color_filter"]
+[node name="Enemy" parent="." instance=ExtResource("5_fwwfi")]
+position = Vector2(866, 393)

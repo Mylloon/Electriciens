@@ -1,11 +1,11 @@
 [gd_scene load_steps=21 format=4 uid="uid://nnjkpa1rm758"]
 
 [ext_resource type="Script" path="res://Scripts/Success.gd" id="1_ywk1r"]
-[ext_resource type="PackedScene" uid="uid://b0wysm6c2nqgj" path="res://Characters/Player.tscn" id="2_ia34y"]
 [ext_resource type="Texture2D" uid="uid://cibcntstf71xs" path="res://assets/sokoban_tilesheet.png" id="3_nuk7a"]
 [ext_resource type="Script" path="res://Scripts/TilesColor.gd" id="4_7t00o"]
 [ext_resource type="PackedScene" uid="uid://cwiqo77hqfgks" path="res://Scenes/Filter.tscn" id="4_08soe"]
 [ext_resource type="PackedScene" uid="uid://bw0ohybrcvdic" path="res://Characters/Enemy.tscn" id="5_u1rcq"]
+[ext_resource type="PackedScene" uid="uid://baehv45yk77sc" path="res://Scenes/Utils/PlayerSpawner.tscn" id="6_achat"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_66sc6"]
 polygon = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
@@ -86,6 +86,7 @@ texture_region_size = Vector2i(64, 64)
 7:7/0 = 0
 8:0/0 = 0
 8:1/0 = 0
+8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 8:2/0 = 0
 8:3/0 = 0
 8:4/0 = 0
@@ -94,6 +95,7 @@ texture_region_size = Vector2i(64, 64)
 8:7/0 = 0
 9:0/0 = 0
 9:1/0 = 0
+9:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 9:2/0 = 0
 9:3/0 = 0
 9:4/0 = 0
@@ -102,6 +104,7 @@ texture_region_size = Vector2i(64, 64)
 9:7/0 = 0
 10:0/0 = 0
 10:1/0 = 0
+10:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 10:2/0 = 0
 10:3/0 = 0
 10:4/0 = 0
@@ -149,7 +152,8 @@ texture_region_size = Vector2i(64, 64)
 [sub_resource type="TileSet" id="TileSet_8q7wt"]
 tile_size = Vector2i(64, 64)
 occlusion_layer_0/light_mask = 1
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 5
 sources/0 = SubResource("TileSetAtlasSource_r7s07")
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ceki0"]
@@ -324,7 +328,7 @@ tile_set = SubResource("TileSet_lka3m")
 
 [node name="walls" type="TileMapLayer" parent="TileMap"]
 use_parent_material = true
-tile_map_data = PackedByteArray("AAAAAAkAAAAFAAEAAAABAAkAAAAFAAEAAAACAAkAAAAFAAEAAAADAAkAAAAFAAEAAAAEAAkAAAAFAAEAAAAFAAkAAAAFAAEAAAAGAAkAAAAFAAEAAAAHAAkAAAAFAAEAAAAIAAkAAAAFAAEAAAAJAAkAAAAFAAEAAAAKAAkAAAAFAAEAAAALAAkAAAAFAAEAAAAMAAkAAAAFAAEAAAANAAkAAAAFAAEAAAAOAAkAAAAFAAEAAAAPAAkAAAAFAAEAAAAQAAkAAAAFAAEAAAARAAkAAAAFAAEAAAARAAgAAAAFAAEAAAARAAcAAAAFAAEAAAARAAYAAAAFAAEAAAARAAUAAAAFAAEAAAARAAQAAAAFAAEAAAARAAMAAAAFAAEAAAARAAIAAAAFAAEAAAARAAEAAAAFAAEAAAARAAAAAAAFAAEAAAAQAAAAAAAFAAEAAAAPAAAAAAAFAAEAAAAOAAAAAAAFAAEAAAANAAAAAAAFAAEAAAAMAAAAAAAFAAEAAAALAAAAAAAFAAEAAAAKAAAAAAAFAAEAAAAJAAAAAAAFAAEAAAAIAAAAAAAFAAEAAAAHAAAAAAAFAAEAAAAGAAAAAAAFAAEAAAAFAAAAAAAFAAEAAAAEAAAAAAAFAAEAAAADAAAAAAAFAAEAAAACAAAAAAAFAAEAAAABAAAAAAAFAAEAAAAAAAAAAAAFAAEAAAAAAAEAAAAFAAEAAAAAAAIAAAAFAAEAAAAAAAMAAAAFAAEAAAAAAAQAAAAFAAEAAAAAAAUAAAAFAAEAAAAAAAYAAAAFAAEAAAAAAAcAAAAFAAEAAAAAAAgAAAAFAAEAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAAAFAAEAAAABAAAAAAAKAAEAAAACAAAAAAAKAAEAAAADAAAAAAAKAAEAAAAEAAAAAAAKAAEAAAAFAAAAAAAKAAEAAAAGAAAAAAAKAAEAAAAHAAAAAAAKAAEAAAAIAAAAAAAKAAEAAAAJAAAAAAAKAAEAAAAKAAAAAAAKAAEAAAALAAAAAAAKAAEAAAAMAAAAAAAKAAEAAAANAAAAAAAKAAEAAAAOAAAAAAAKAAEAAAAPAAAAAAAKAAEAAAAQAAAAAAAKAAEAAAARAAAAAAAFAAEAAAARAAEAAAAFAAEAAAARAAIAAAAFAAEAAAARAAMAAAAFAAEAAAARAAQAAAAFAAEAAAARAAUAAAAFAAEAAAARAAYAAAAFAAEAAAARAAcAAAAFAAEAAAARAAgAAAAFAAEAAAARAAkAAAAFAAEAAAAQAAkAAAAKAAEAAAAPAAkAAAAKAAEAAAAOAAkAAAAKAAEAAAANAAkAAAAKAAEAAAAMAAkAAAAKAAEAAAALAAkAAAAKAAEAAAAKAAkAAAAKAAEAAAAJAAkAAAAKAAEAAAAIAAkAAAAKAAEAAAAHAAkAAAAKAAEAAAAGAAkAAAAKAAEAAAAFAAkAAAAKAAEAAAAEAAkAAAAKAAEAAAADAAkAAAAKAAEAAAACAAkAAAAKAAEAAAABAAkAAAAKAAEAAAAAAAkAAAAFAAEAAAAAAAEAAAAFAAEAAAAAAAIAAAAFAAEAAAAAAAMAAAAFAAEAAAAAAAQAAAAFAAEAAAAAAAUAAAAFAAEAAAAAAAYAAAAFAAEAAAAAAAcAAAAFAAEAAAAAAAgAAAAFAAEAAAADAAQAAAAKAAEAAAAEAAQAAAAKAAEAAAAFAAQAAAAKAAEAAAAGAAQAAAAKAAEAAAAHAAQAAAAFAAEAAAACAAQAAAAKAAEAAAAHAAUAAAAFAAEAAAAHAAYAAAAFAAEAAAAHAAcAAAAFAAEAAAA=")
 tile_set = SubResource("TileSet_8q7wt")
 
 [node name="RED" type="TileMapLayer" parent="TileMap/walls" node_paths=PackedStringArray("caller")]
@@ -353,10 +357,8 @@ pos_test = Vector2i(2, 8)
 color = 2
 caller = NodePath("../../../Filter")
 
-[node name="Player" parent="." instance=ExtResource("2_ia34y")]
-position = Vector2(92, 413)
-
 [node name="Enemy" parent="." instance=ExtResource("5_u1rcq")]
-position = Vector2(305, 330)
+position = Vector2(283, 365)
 
-[connection signal="changeColorFilter" from="Filter" to="Player" method="_on_filter_change_color_filter"]
+[node name="PlayerSpawner" parent="." instance=ExtResource("6_achat")]
+position = Vector2(191, 112)
