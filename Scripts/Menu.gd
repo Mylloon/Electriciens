@@ -28,14 +28,10 @@ func _on_exit_button_pressed() -> void:
 
 
 func get_random_color() -> Color:
-	var size = ColorsEnum.colors.size()
-	print(size)
-	var random_key = ColorsEnum.colors.keys()[randi() % size]
-	print(random_key)
+	var random_key = ColorsEnum.colors.keys()[randi() % ColorsEnum.colors.size()]
 	return Color(ColorsEnum.colors[random_key], 1.)
 
 
 func _on_timer_timeout() -> void:
-	print(get_random_color())
 	light_o1.color = get_random_color()
 	light_o2.color = get_random_color()
