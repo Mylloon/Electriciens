@@ -22,7 +22,7 @@ func _on_menu_button_pressed() -> void:
 func _on_exit_button_pressed() -> void:
 	switcher.exit_game()
 
-	
+
 func _on_button_focus() -> void:
 	playback.stop()
 	playback.play()

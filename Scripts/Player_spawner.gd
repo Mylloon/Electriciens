@@ -8,9 +8,9 @@ var player = null
 func _process(delta: float) -> void:
 	if player == null:
 		var new_obj = player_scene.instantiate()
-		var posX : int = position.x
-		var posY : int = position.y
-		new_obj.position.x =  posX
-		new_obj.position.y =  posY
+		var posX: int = position.x
+		var posY: int = position.y
+		new_obj.position.x = posX
+		new_obj.position.y = posY
 		get_parent().add_child(new_obj)
 		player = new_obj

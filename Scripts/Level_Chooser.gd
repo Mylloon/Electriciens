@@ -4,8 +4,9 @@ extends Control
 @onready var playback: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 #func _ready():
-	#Audio.play_music_level()
-	
+#Audio.play_music_level()
+
+
 func _on_level_1_pressed() -> void:
 	switcher.switch_scene("res://Scenes/Levels/Level1.tscn")
 
@@ -28,8 +29,8 @@ func _on_level_infinite_pressed() -> void:
 
 func _on_button_return_pressed() -> void:
 	switcher.return_to_last()
-	
-	
+
+
 func _on_button_focus() -> void:
 	playback.stop()
 	playback.play()
