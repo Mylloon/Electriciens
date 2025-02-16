@@ -1,6 +1,8 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://3qammly741kk"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://3qammly741kk"]
 
 [ext_resource type="FontFile" uid="uid://bgq1qbj47clx6" path="res://assets/Font/Silkscreen-Regular.ttf" id="1_b1cgx"]
+[ext_resource type="StyleBox" uid="uid://dwbnjojsbmcka" path="res://Scenes/Utils/new_style_box_empty.tres" id="1_yo6eg"]
 
 [resource]
 default_font = ExtResource("1_b1cgx")
+Button/styles/normal = ExtResource("1_yo6eg")

@@ -18,13 +18,13 @@ shader_parameter/distort_intensity = 0.025
 shader_parameter/noise_opacity = 0.11
 shader_parameter/noise_speed = 5.0
 shader_parameter/static_noise_intensity = 0.06
-shader_parameter/aberration = 0.03
+shader_parameter/aberration = 0.00300005
 shader_parameter/brightness = 1.4
 shader_parameter/discolor = false
 shader_parameter/warp_amount = 0.13
 shader_parameter/clip_warp = false
 shader_parameter/vignette_intensity = 0.4
-shader_parameter/vignette_opacity = 0.685
+shader_parameter/vignette_opacity = 0.5
 
 [node name="FilterTV" type="Node2D"]
 

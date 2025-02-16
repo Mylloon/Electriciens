@@ -13,7 +13,7 @@ func _ready():
 
 
 func _on_start_button_pressed() -> void:
-	switcher.switch_scene("res://Scenes/Main.tscn")
+	switcher.switch_scene("res://Scenes/Levels/Level1.tscn")
 
 
 func _on_options_button_pressed() -> void:
