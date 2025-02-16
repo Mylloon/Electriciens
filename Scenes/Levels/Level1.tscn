@@ -21,7 +21,7 @@ polygon = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_j4a1o"]
 polygon = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nn2yn"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_86ccq"]
 texture = ExtResource("3_kiq4c")
 texture_region_size = Vector2i(64, 64)
 0:4/0 = 0
@@ -155,7 +155,7 @@ physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 5
 custom_data_layer_0/name = "coin"
 custom_data_layer_0/type = 1
-sources/0 = SubResource("TileSetAtlasSource_nn2yn")
+sources/0 = SubResource("TileSetAtlasSource_86ccq")
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_f12g2")

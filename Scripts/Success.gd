@@ -15,4 +15,4 @@ func _physics_process(_delta: float) -> void:
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
-		switcher.switch_scene("res://Scenes/Pause.tscn")
+		switcher.switch_scene("res://Scenes/Pause.tscn", true)

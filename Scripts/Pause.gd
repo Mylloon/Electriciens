@@ -7,11 +7,11 @@ extends Control
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
-		switcher.return_to_last()
+		switcher.return_to_last(true)
 
 
 func _on_back_button_pressed() -> void:
-	switcher.return_to_last()
+	switcher.return_to_last(true)
 
 
 func _on_menu_button_pressed() -> void:
