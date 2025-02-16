@@ -5,9 +5,11 @@ extends Control
 @onready var light_o2: PointLight2D = %SecondO
 @onready var start_button: TextureButton = $HFlowContainer/StartButton
 
+
 func _ready():
 	if !Input.get_connected_joypads().is_empty():
 		start_button.grab_focus()
+
 
 func _on_start_button_pressed() -> void:
 	switcher.switch_scene("res://Scenes/Main.tscn")
