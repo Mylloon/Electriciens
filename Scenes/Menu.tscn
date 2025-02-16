@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://biqevy0v01ddq"]
+[gd_scene load_steps=15 format=3 uid="uid://biqevy0v01ddq"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_78sxm"]
 [ext_resource type="Texture2D" uid="uid://b2n5h6etytg3l" path="res://assets/mainmenu.png" id="1_r3bpu"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bpvjj83dslu6o" path="res://assets/Buttons/Exit.png" id="11_ysuvk"]
 [ext_resource type="Texture2D" uid="uid://b2t1tipnobsgp" path="res://assets/Buttons/ExitHover.png" id="12_hb634"]
 [ext_resource type="AudioStream" uid="uid://fjc01upduas4" path="res://assets/Buttons/Hover.wav" id="13_x0np4"]
+[ext_resource type="PackedScene" uid="uid://btybcx164yt1u" path="res://Scenes/FilterTV.tscn" id="14_1lvei"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -22,6 +23,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_78sxm")
+
+[node name="FilterTV" parent="." instance=ExtResource("14_1lvei")]
 
 [node name="FirstO" type="PointLight2D" parent="." groups=["Lights"]]
 unique_name_in_owner = true

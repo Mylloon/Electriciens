@@ -12,11 +12,11 @@ func _on_level_2_pressed() -> void:
 
 
 func _on_level_3_pressed() -> void:
-	print("level 3")
+	switcher.switch_scene("res://Scenes/Levels/Level3.tscn")
 
 
 func _on_level_4_pressed() -> void:
-	print("level 4")
+	switcher.switch_scene("res://Scenes/Levels/Level4.tscn")
 
 
 func _on_level_infinite_pressed() -> void:

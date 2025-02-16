@@ -10,7 +10,7 @@ func _ready() -> void:
 
 	self.color = FilterColor.current()
 	# Start timer for automatic movement
-	timer.wait_time = 3
+	timer.wait_time = 4
 	timer.one_shot = false
 	timer.timeout.connect(_on_Timer_timeout)
 	timer.start()
