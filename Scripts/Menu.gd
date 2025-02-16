@@ -4,6 +4,7 @@ extends Control
 @onready var light_o1: PointLight2D = %FirstO
 @onready var light_o2: PointLight2D = %SecondO
 @onready var start_button: TextureButton = $HFlowContainer/StartButton
+@onready var playback: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 
 func _ready():
@@ -35,3 +36,8 @@ func get_random_color() -> Color:
 func _on_timer_timeout() -> void:
 	light_o1.color = get_random_color()
 	light_o2.color = get_random_color()
+
+
+func _on_button_focus() -> void:
+	playback.stop()
+	playback.play()

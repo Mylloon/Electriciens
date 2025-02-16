@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://biqevy0v01ddq"]
+[gd_scene load_steps=14 format=3 uid="uid://biqevy0v01ddq"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_78sxm"]
 [ext_resource type="Texture2D" uid="uid://b2n5h6etytg3l" path="res://assets/mainmenu.png" id="1_r3bpu"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://du7lx2h3kylkx" path="res://assets/Buttons/LevelsHover.png" id="10_17ony"]
 [ext_resource type="Texture2D" uid="uid://bpvjj83dslu6o" path="res://assets/Buttons/Exit.png" id="11_ysuvk"]
 [ext_resource type="Texture2D" uid="uid://b2t1tipnobsgp" path="res://assets/Buttons/ExitHover.png" id="12_hb634"]
+[ext_resource type="AudioStream" uid="uid://fjc01upduas4" path="res://assets/Buttons/Hover.wav" id="13_x0np4"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -80,6 +81,7 @@ focus_next = NodePath("../ExitButton")
 focus_previous = NodePath("../OptionsButton")
 texture_normal = ExtResource("9_d6gbm")
 texture_hover = ExtResource("10_17ony")
+texture_focused = ExtResource("10_17ony")
 stretch_mode = 5
 
 [node name="ExitButton" type="TextureButton" parent="HFlowContainer"]
@@ -93,8 +95,19 @@ texture_hover = ExtResource("12_hb634")
 texture_focused = ExtResource("12_hb634")
 stretch_mode = 5
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_x0np4")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="focus_entered" from="HFlowContainer/StartButton" to="." method="_on_button_focus"]
+[connection signal="mouse_entered" from="HFlowContainer/StartButton" to="." method="_on_button_focus"]
 [connection signal="pressed" from="HFlowContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="focus_entered" from="HFlowContainer/OptionsButton" to="." method="_on_button_focus"]
+[connection signal="mouse_entered" from="HFlowContainer/OptionsButton" to="." method="_on_button_focus"]
 [connection signal="pressed" from="HFlowContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="focus_entered" from="HFlowContainer/LevelsButton" to="." method="_on_button_focus"]
+[connection signal="mouse_entered" from="HFlowContainer/LevelsButton" to="." method="_on_button_focus"]
 [connection signal="pressed" from="HFlowContainer/LevelsButton" to="." method="_on_levels_button_pressed"]
+[connection signal="focus_entered" from="HFlowContainer/ExitButton" to="." method="_on_button_focus"]
+[connection signal="mouse_entered" from="HFlowContainer/ExitButton" to="." method="_on_button_focus"]
 [connection signal="pressed" from="HFlowContainer/ExitButton" to="." method="_on_exit_button_pressed"]

@@ -1,11 +1,11 @@
 [gd_scene load_steps=21 format=4 uid="uid://dpguq6g48adtw"]
 
-[ext_resource type="PackedScene" uid="uid://cwiqo77hqfgks" path="res://Scenes/Filter.tscn" id="1_h5ki3"]
-[ext_resource type="Texture2D" uid="uid://cibcntstf71xs" path="res://assets/sokoban_tilesheet.png" id="2_jawwv"]
-[ext_resource type="Script" path="res://Scripts/Success.gd" id="3_fnkoe"]
-[ext_resource type="Script" path="res://Scripts/TilesColor.gd" id="3_oeu0r"]
-[ext_resource type="PackedScene" uid="uid://b0wysm6c2nqgj" path="res://Characters/Player.tscn" id="4_bmgp7"]
-[ext_resource type="PackedScene" uid="uid://bw0ohybrcvdic" path="res://Characters/Enemy.tscn" id="5_erfuv"]
+[ext_resource type="Script" path="res://Scripts/Success.gd" id="1_t5ab1"]
+[ext_resource type="PackedScene" uid="uid://cwiqo77hqfgks" path="res://Scenes/Filter.tscn" id="2_bn2gj"]
+[ext_resource type="Texture2D" uid="uid://cibcntstf71xs" path="res://assets/sokoban_tilesheet.png" id="3_a7t8c"]
+[ext_resource type="Script" path="res://Scripts/TilesColor.gd" id="4_a16pa"]
+[ext_resource type="PackedScene" uid="uid://b0wysm6c2nqgj" path="res://Characters/Player.tscn" id="5_jyjhi"]
+[ext_resource type="PackedScene" uid="uid://bw0ohybrcvdic" path="res://Characters/Enemy.tscn" id="6_o1bju"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_66sc6"]
 polygon = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
@@ -23,7 +23,7 @@ polygon = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 polygon = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r7s07"]
-texture = ExtResource("2_jawwv")
+texture = ExtResource("3_a7t8c")
 texture_region_size = Vector2i(64, 64)
 0:4/0 = 0
 0:5/0 = 0
@@ -168,7 +168,7 @@ polygon = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 polygon = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0tatl"]
-texture = ExtResource("2_jawwv")
+texture = ExtResource("3_a7t8c")
 texture_region_size = Vector2i(64, 64)
 0:4/0 = 0
 0:5/0 = 0
@@ -304,9 +304,9 @@ custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_0tatl")
 
 [node name="Main" type="Node2D"]
-script = ExtResource("3_fnkoe")
+script = ExtResource("1_t5ab1")
 
-[node name="Filter" parent="." instance=ExtResource("1_h5ki3")]
+[node name="Filter" parent="." instance=ExtResource("2_bn2gj")]
 z_index = 1
 
 [node name="TileMap" type="TileMapLayer" parent="."]
@@ -330,7 +330,7 @@ tile_set = SubResource("TileSet_8q7wt")
 [node name="RED" type="TileMapLayer" parent="TileMap/walls" node_paths=PackedStringArray("caller")]
 use_parent_material = true
 tile_set = SubResource("TileSet_8q7wt")
-script = ExtResource("3_oeu0r")
+script = ExtResource("4_a16pa")
 atlas_coord = Vector2i(2, 1)
 pos_test = Vector2i(2, 4)
 caller = NodePath("../../../Filter")
@@ -338,7 +338,7 @@ caller = NodePath("../../../Filter")
 [node name="BLUE" type="TileMapLayer" parent="TileMap/walls" node_paths=PackedStringArray("caller")]
 use_parent_material = true
 tile_set = SubResource("TileSet_8q7wt")
-script = ExtResource("3_oeu0r")
+script = ExtResource("4_a16pa")
 atlas_coord = Vector2i(3, 1)
 pos_test = Vector2i(2, 6)
 color = 1
@@ -347,16 +347,16 @@ caller = NodePath("../../../Filter")
 [node name="GREEN" type="TileMapLayer" parent="TileMap/walls" node_paths=PackedStringArray("caller")]
 use_parent_material = true
 tile_set = SubResource("TileSet_8q7wt")
-script = ExtResource("3_oeu0r")
+script = ExtResource("4_a16pa")
 atlas_coord = Vector2i(4, 1)
 pos_test = Vector2i(2, 8)
 color = 2
 caller = NodePath("../../../Filter")
 
-[node name="Player" parent="." instance=ExtResource("4_bmgp7")]
+[node name="Player" parent="." instance=ExtResource("5_jyjhi")]
 position = Vector2(92, 413)
 
-[node name="Enemy" parent="." instance=ExtResource("5_erfuv")]
+[node name="Enemy" parent="." instance=ExtResource("6_o1bju")]
 position = Vector2(305, 330)
 
 [connection signal="changeColorFilter" from="Filter" to="Player" method="_on_filter_change_color_filter"]

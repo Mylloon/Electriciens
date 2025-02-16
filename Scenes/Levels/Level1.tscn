@@ -1,10 +1,10 @@
 [gd_scene load_steps=13 format=4 uid="uid://ccupw27i4jg5t"]
 
-[ext_resource type="Script" path="res://Scripts/Success.gd" id="1_knuq1"]
-[ext_resource type="PackedScene" uid="uid://cwiqo77hqfgks" path="res://Scenes/Filter.tscn" id="1_o3snt"]
-[ext_resource type="Texture2D" uid="uid://cibcntstf71xs" path="res://assets/sokoban_tilesheet.png" id="2_quq8q"]
-[ext_resource type="Script" path="res://Scripts/TilesColor.gd" id="3_c4cue"]
-[ext_resource type="PackedScene" uid="uid://b0wysm6c2nqgj" path="res://Characters/Player.tscn" id="4_06c6w"]
+[ext_resource type="Script" path="res://Scripts/Success.gd" id="1_f12g2"]
+[ext_resource type="PackedScene" uid="uid://cwiqo77hqfgks" path="res://Scenes/Filter.tscn" id="2_6fcy8"]
+[ext_resource type="Texture2D" uid="uid://cibcntstf71xs" path="res://assets/sokoban_tilesheet.png" id="3_kiq4c"]
+[ext_resource type="Script" path="res://Scripts/TilesColor.gd" id="4_8g3kd"]
+[ext_resource type="PackedScene" uid="uid://b0wysm6c2nqgj" path="res://Characters/Player.tscn" id="5_on4ir"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ceki0"]
 polygon = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
@@ -22,7 +22,7 @@ polygon = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 polygon = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nn2yn"]
-texture = ExtResource("2_quq8q")
+texture = ExtResource("3_kiq4c")
 texture_region_size = Vector2i(64, 64)
 0:4/0 = 0
 0:5/0 = 0
@@ -158,9 +158,9 @@ custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_nn2yn")
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_knuq1")
+script = ExtResource("1_f12g2")
 
-[node name="Filter" parent="." instance=ExtResource("1_o3snt")]
+[node name="Filter" parent="." instance=ExtResource("2_6fcy8")]
 z_index = 1
 
 [node name="TileMap" type="TileMapLayer" parent="."]
@@ -185,7 +185,7 @@ tile_set = SubResource("TileSet_8q7wt")
 use_parent_material = true
 tile_map_data = PackedByteArray("AAAMAAEAAAACAAEAAAALAAEAAAACAAEAAAAKAAIAAAACAAEAAAAJAAIAAAACAAEAAAAIAAMAAAACAAEAAAAHAAMAAAACAAEAAAABAAQAAAACAAEAAAA=")
 tile_set = SubResource("TileSet_8q7wt")
-script = ExtResource("3_c4cue")
+script = ExtResource("4_8g3kd")
 atlas_coord = Vector2i(2, 1)
 pos_test = Vector2i(2, 4)
 caller = NodePath("../../../Filter")
@@ -194,7 +194,7 @@ caller = NodePath("../../../Filter")
 use_parent_material = true
 tile_map_data = PackedByteArray("AAAJAAgAAAADAAEAAAAEAAMAAAADAAEAAAAEAAQAAAADAAEAAAAEAAUAAAADAAEAAAAEAAYAAAADAAEAAAA=")
 tile_set = SubResource("TileSet_8q7wt")
-script = ExtResource("3_c4cue")
+script = ExtResource("4_8g3kd")
 atlas_coord = Vector2i(3, 1)
 pos_test = Vector2i(2, 6)
 color = 1
@@ -204,13 +204,13 @@ caller = NodePath("../../../Filter")
 use_parent_material = true
 tile_map_data = PackedByteArray("AAAJAAUAAAAEAAEAAAAJAAYAAAAEAAEAAAACAAMAAAAEAAEAAAA=")
 tile_set = SubResource("TileSet_8q7wt")
-script = ExtResource("3_c4cue")
+script = ExtResource("4_8g3kd")
 atlas_coord = Vector2i(4, 1)
 pos_test = Vector2i(2, 8)
 color = 2
 caller = NodePath("../../../Filter")
 
-[node name="Player" parent="." instance=ExtResource("4_06c6w")]
+[node name="Player" parent="." instance=ExtResource("5_on4ir")]
 position = Vector2(92, 94)
 
 [connection signal="changeColorFilter" from="Filter" to="Player" method="_on_filter_change_color_filter"]
