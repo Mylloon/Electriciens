@@ -21,6 +21,7 @@ config/icon="res://assets/logo.png"
 [autoload]
 
 PauseHistory="*res://Scripts/Global/PauseHistory.gd"
+Audio="*res://Scenes/Utils/Audio.tscn"
 
 [display]
 

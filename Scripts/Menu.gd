@@ -8,6 +8,7 @@ extends Control
 
 
 func _ready():
+	Audio.play_music_menu()
 	if !Input.get_connected_joypads().is_empty():
 		start_button.grab_focus()
 

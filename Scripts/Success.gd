@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var switcher = get_node("/root/PauseHistory")
 
+@onready var playback: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var success: TileMapLayer = $TileMap/floor/success
 @onready var walls: TileMapLayer = $TileMap/walls
 @onready var player: Player = $Player
@@ -15,6 +16,8 @@ func _physics_process(_delta: float) -> void:
 		var tile_loc := success.local_to_map(player.position)
 		var tile := success.get_cell_tile_data(tile_loc)
 		if tile and tile.get_custom_data("coin"):
+			playback.stop()
+			playback.play()
 			switcher.switch_scene("res://Scenes/LevelChooser.tscn")
 			return
 		

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1b47lhlotvkk"]
+[gd_scene load_steps=6 format=3 uid="uid://c1b47lhlotvkk"]
 
 [ext_resource type="Script" path="res://Scripts/Pause.gd" id="1_yw5aj"]
 [ext_resource type="PackedScene" uid="uid://btybcx164yt1u" path="res://Scenes/FilterTV.tscn" id="2_3ikx7"]
 [ext_resource type="Texture2D" uid="uid://gpvu12yx8eyn" path="res://assets/menu-pause.png" id="2_q045q"]
 [ext_resource type="Theme" uid="uid://3qammly741kk" path="res://Scenes/Utils/Font.tres" id="3_y4vl8"]
+[ext_resource type="AudioStream" uid="uid://fjc01upduas4" path="res://assets/Buttons/Hover.wav" id="5_c224o"]
 
 [node name="Pause" type="Control"]
 layout_mode = 3
@@ -44,6 +45,13 @@ layout_mode = 2
 theme = ExtResource("3_y4vl8")
 text = "Quitter le jeu"
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_c224o")
+volume_db = -10.0
+
+[connection signal="mouse_entered" from="HFlowContainer/BackButton" to="." method="_on_button_focus"]
 [connection signal="pressed" from="HFlowContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="mouse_entered" from="HFlowContainer/MenuButton" to="." method="_on_button_focus"]
 [connection signal="pressed" from="HFlowContainer/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="mouse_entered" from="HFlowContainer/ExitButton" to="." method="_on_button_focus"]
 [connection signal="pressed" from="HFlowContainer/ExitButton" to="." method="_on_exit_button_pressed"]

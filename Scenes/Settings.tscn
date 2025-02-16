@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvs5rmxlaoisv"]
+[gd_scene load_steps=6 format=3 uid="uid://dvs5rmxlaoisv"]
 
 [ext_resource type="Script" path="res://Scripts/Settings.gd" id="1_fde46"]
-[ext_resource type="Texture2D" uid="uid://gpvu12yx8eyn" path="res://assets/menu-pause.png" id="2_e6kge"]
 [ext_resource type="PackedScene" uid="uid://btybcx164yt1u" path="res://Scenes/FilterTV.tscn" id="2_wtp4n"]
 [ext_resource type="Theme" uid="uid://3qammly741kk" path="res://Scenes/Utils/Font.tres" id="3_3q7sy"]
+[ext_resource type="Texture2D" uid="uid://b2n5h6etytg3l" path="res://assets/mainmenu.png" id="3_qb2pl"]
+[ext_resource type="AudioStream" uid="uid://bnw3l602ifs7m" path="res://assets/Musics/surprise.wav" id="5_jw5kw"]
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -18,14 +19,14 @@ script = ExtResource("1_fde46")
 
 [node name="Mainmenu" type="Sprite2D" parent="."]
 position = Vector2(575.75, 320.25)
-texture = ExtResource("2_e6kge")
+texture = ExtResource("3_qb2pl")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 126.0
-offset_top = 196.0
-offset_right = 530.0
-offset_bottom = 266.0
+offset_left = 596.0
+offset_top = 359.0
+offset_right = 1000.0
+offset_bottom = 429.0
 theme = ExtResource("3_3q7sy")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer"]
@@ -44,16 +45,26 @@ step = 0.05
 
 [node name="HFlowContainer" type="HFlowContainer" parent="."]
 layout_mode = 0
-offset_left = 245.0
-offset_top = 485.0
-offset_right = 501.0
-offset_bottom = 612.0
-theme_override_constants/h_separation = 5
-theme_override_constants/v_separation = 20
+offset_left = 731.0
+offset_top = 453.0
+offset_right = 919.0
+offset_bottom = 580.0
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 39
+alignment = 1
+
+[node name="Surprise" type="Button" parent="HFlowContainer"]
+layout_mode = 2
+text = "Surprise"
 
 [node name="Button" type="Button" parent="HFlowContainer"]
 layout_mode = 2
 text = "Retour en arrière"
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_jw5kw")
+volume_db = 10.0
+
 [connection signal="value_changed" from="HBoxContainer/Volume" to="." method="_on_volume_value_changed"]
+[connection signal="pressed" from="HFlowContainer/Surprise" to="." method="_on_button"]
 [connection signal="pressed" from="HFlowContainer/Button" to="." method="_on_button_pressed"]

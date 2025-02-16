@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://bgssndl3kqvjc"]
+[gd_scene load_steps=17 format=4 uid="uid://bgssndl3kqvjc"]
 
 [ext_resource type="Script" path="res://Scripts/Success.gd" id="1_t5ab1"]
 [ext_resource type="PackedScene" uid="uid://cwiqo77hqfgks" path="res://Scenes/Filter.tscn" id="2_bn2gj"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/ColorOrder.gd" id="5_5eggu"]
 [ext_resource type="PackedScene" uid="uid://baehv45yk77sc" path="res://Scenes/Utils/PlayerSpawner.tscn" id="6_lvtcm"]
 [ext_resource type="PackedScene" uid="uid://bw0ohybrcvdic" path="res://Characters/Enemy.tscn" id="6_o1bju"]
+[ext_resource type="AudioStream" uid="uid://dq1xphj6ju82" path="res://assets/Musics/coin.wav" id="9_4hpqd"]
 [ext_resource type="PackedScene" uid="uid://brbm0llal77mv" path="res://Scenes/FilterTVLevel.tscn" id="9_u0g8d"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_11yfc"]
@@ -247,3 +248,7 @@ position = Vector2(980, 429)
 position = Vector2(554, 93)
 
 [node name="FilterTVLevel" parent="." instance=ExtResource("9_u0g8d")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_4hpqd")
+volume_db = -10.0
