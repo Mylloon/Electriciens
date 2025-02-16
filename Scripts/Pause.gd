@@ -4,6 +4,7 @@ extends Control
 
 # TODO: Pause the scene instead of replacing it with the pause screen
 
+
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		switcher.return_to_last()
