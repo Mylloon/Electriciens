@@ -4,11 +4,11 @@ extends Control
 
 
 func _on_level_1_pressed() -> void:
-	print("level 1")
+	switcher.switch_scene("res://Scenes/Levels/Level1.tscn")
 
 
 func _on_level_2_pressed() -> void:
-	print("level 2")
+	switcher.switch_scene("res://Scenes/Levels/Level2.tscn")
 
 
 func _on_level_3_pressed() -> void:
