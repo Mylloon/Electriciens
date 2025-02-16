@@ -12,7 +12,6 @@ func _ready():
 	var callable = Callable(self, "changeVisibility")
 	caller.connect("changeColorFilter", callable)
 	randomize()  # Ensure randomness each run
-	
 
 
 func changeVisibility():

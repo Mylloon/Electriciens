@@ -8,17 +8,19 @@ var can_detect_collission := true
 
 var under_light := false  # Vrai si dans la lumière
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass  # Replace with function body.
+
 
 func _physics_process(delta: float) -> void:
 	#if !can_detect_collission:
-		#time_since_last_hit += delta
-		#if time_since_last_hit >= grace_period:
-			#time_since_last_hit = 0.
-			#can_detect_collission = true
-		#return
+	#time_since_last_hit += delta
+	#if time_since_last_hit >= grace_period:
+	#time_since_last_hit = 0.
+	#can_detect_collission = true
+	#return
 
 	var player_under_light := false
 	print("dans la func")

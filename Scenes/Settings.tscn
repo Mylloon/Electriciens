@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvs5rmxlaoisv"]
+
+[ext_resource type="Script" path="res://Scripts/Settings.gd" id="1_fde46"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fde46")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 313.0
+offset_top = 216.0
+offset_right = 878.0
+offset_bottom = 423.0
+text = "Pour accéder aux paramètres, il faut mettre la note maximale sur itch.io
+
+Cliquer pour revenir en arrière"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

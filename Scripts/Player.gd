@@ -11,6 +11,7 @@ var inputs = {"right": Vector2.RIGHT, "left": Vector2.LEFT, "up": Vector2.UP, "d
 var frozen := false
 @onready var collision := self.get_collision_layer()
 
+
 func _ready():
 	position = position.snapped(Vector2.ONE * tile_size)
 	position += Vector2.ONE * tile_size / 2
@@ -43,8 +44,10 @@ func move(dir):
 		await tween.finished
 		moving = false
 
+
 func get_frozen_color() -> Color:
 	return Color(FilterColor.current(), 0.2)
+
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("freeze"):
@@ -55,6 +58,7 @@ func _process(_delta: float) -> void:
 		else:
 			self.set_collision_layer(collision)
 			self.modulate = Color.WHITE
+
 
 func _on_filter_change_color_filter() -> void:
 	if frozen:

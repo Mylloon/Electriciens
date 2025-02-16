@@ -1,0 +1,100 @@
+[gd_scene load_steps=13 format=3 uid="uid://biqevy0v01ddq"]
+
+[ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_78sxm"]
+[ext_resource type="Texture2D" uid="uid://b2n5h6etytg3l" path="res://assets/mainmenu.png" id="1_r3bpu"]
+[ext_resource type="Texture2D" uid="uid://djnwabgu6flst" path="res://assets/spotlight-o1.png" id="2_7ylef"]
+[ext_resource type="Texture2D" uid="uid://b4jatpijvknml" path="res://assets/spotlight-o2.png" id="3_tf4en"]
+[ext_resource type="Texture2D" uid="uid://cynogqe6q3wqd" path="res://assets/Buttons/Start.png" id="5_5k2ix"]
+[ext_resource type="Texture2D" uid="uid://deuby1fxqfddj" path="res://assets/Buttons/StartHover.png" id="6_qbx8k"]
+[ext_resource type="Texture2D" uid="uid://mi3c0vp3io1f" path="res://assets/Buttons/Options.png" id="7_cdgvu"]
+[ext_resource type="Texture2D" uid="uid://bcefm0jamy5x6" path="res://assets/Buttons/OptionsHover.png" id="8_aofsx"]
+[ext_resource type="Texture2D" uid="uid://cx7vvmsyh10m1" path="res://assets/Buttons/Levels.png" id="9_d6gbm"]
+[ext_resource type="Texture2D" uid="uid://du7lx2h3kylkx" path="res://assets/Buttons/LevelsHover.png" id="10_17ony"]
+[ext_resource type="Texture2D" uid="uid://bpvjj83dslu6o" path="res://assets/Buttons/Exit.png" id="11_ysuvk"]
+[ext_resource type="Texture2D" uid="uid://b2t1tipnobsgp" path="res://assets/Buttons/ExitHover.png" id="12_hb634"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_78sxm")
+
+[node name="FirstO" type="PointLight2D" parent="." groups=["Lights"]]
+unique_name_in_owner = true
+position = Vector2(675, 174)
+energy = 3.0
+texture = ExtResource("2_7ylef")
+
+[node name="SecondO" type="PointLight2D" parent="." groups=["Lights"]]
+unique_name_in_owner = true
+position = Vector2(320, 481)
+energy = 3.0
+texture = ExtResource("3_tf4en")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="Mainmenu" type="Sprite2D" parent="."]
+position = Vector2(575.75, 320.25)
+texture = ExtResource("1_r3bpu")
+
+[node name="HFlowContainer" type="HFlowContainer" parent="."]
+layout_mode = 0
+offset_left = 575.0
+offset_top = 323.0
+offset_right = 1752.0
+offset_bottom = 1058.0
+scale = Vector2(0.385, 0.385)
+
+[node name="StartButton" type="TextureButton" parent="HFlowContainer"]
+layout_mode = 2
+focus_neighbor_right = NodePath("../OptionsButton")
+focus_neighbor_bottom = NodePath("../LevelsButton")
+focus_next = NodePath("../OptionsButton")
+focus_previous = NodePath("../ExitButton")
+texture_normal = ExtResource("5_5k2ix")
+texture_hover = ExtResource("6_qbx8k")
+texture_focused = ExtResource("6_qbx8k")
+stretch_mode = 5
+
+[node name="OptionsButton" type="TextureButton" parent="HFlowContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../StartButton")
+focus_neighbor_bottom = NodePath("../ExitButton")
+focus_next = NodePath("../LevelsButton")
+focus_previous = NodePath("../StartButton")
+texture_normal = ExtResource("7_cdgvu")
+texture_hover = ExtResource("8_aofsx")
+texture_focused = ExtResource("8_aofsx")
+stretch_mode = 5
+
+[node name="LevelsButton" type="TextureButton" parent="HFlowContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../StartButton")
+focus_neighbor_right = NodePath("../ExitButton")
+focus_next = NodePath("../ExitButton")
+focus_previous = NodePath("../OptionsButton")
+texture_normal = ExtResource("9_d6gbm")
+texture_hover = ExtResource("10_17ony")
+stretch_mode = 5
+
+[node name="ExitButton" type="TextureButton" parent="HFlowContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../LevelsButton")
+focus_neighbor_top = NodePath("../OptionsButton")
+focus_next = NodePath("../StartButton")
+focus_previous = NodePath("../LevelsButton")
+texture_normal = ExtResource("11_ysuvk")
+texture_hover = ExtResource("12_hb634")
+texture_focused = ExtResource("12_hb634")
+stretch_mode = 5
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="HFlowContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="HFlowContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="HFlowContainer/LevelsButton" to="." method="_on_levels_button_pressed"]
+[connection signal="pressed" from="HFlowContainer/ExitButton" to="." method="_on_exit_button_pressed"]

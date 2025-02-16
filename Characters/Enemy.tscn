@@ -80,7 +80,7 @@ _data = {
 }
 
 [node name="Enemy" type="Area2D"]
-collision_layer = 4
+collision_layer = 5
 collision_mask = 7
 script = ExtResource("1_3b7xm")
 
@@ -108,7 +108,7 @@ libraries = {
 
 [node name="Torch" type="PointLight2D" parent="."]
 position = Vector2(-1, 4)
-color = Color(0.756863, 0.756863, 0.345098, 1)
+color = Color(0.901961, 0.886275, 0.439216, 1)
 shadow_enabled = true
 texture = ExtResource("3_h72rc")
 texture_scale = 0.6

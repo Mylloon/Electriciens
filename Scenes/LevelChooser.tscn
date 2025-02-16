@@ -1,0 +1,72 @@
+[gd_scene load_steps=2 format=3 uid="uid://djmsbfhyaayj2"]
+
+[ext_resource type="Script" path="res://Scripts/Level_Chooser.gd" id="1_ehq6v"]
+
+[node name="LevelChooser" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ehq6v")
+
+[node name="Level1" type="Button" parent="."]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 71.0
+offset_right = 259.0
+offset_bottom = 231.0
+text = "Level 1
+ (TBA)"
+
+[node name="Level2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 373.0
+offset_top = 67.0
+offset_right = 549.0
+offset_bottom = 227.0
+text = "Level 2
+ (TBA)"
+
+[node name="Level3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 651.0
+offset_top = 63.0
+offset_right = 827.0
+offset_bottom = 223.0
+text = "Level 3
+ (TBA)"
+
+[node name="Level4" type="Button" parent="."]
+layout_mode = 0
+offset_left = 896.0
+offset_top = 63.0
+offset_right = 1072.0
+offset_bottom = 223.0
+text = "Level 4
+ (TBA)"
+
+[node name="LevelInfinite" type="Button" parent="."]
+layout_mode = 0
+offset_left = 162.0
+offset_top = 344.0
+offset_right = 1038.0
+offset_bottom = 504.0
+text = "Mode infini
+(TBA)"
+
+[node name="Return" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1067.0
+offset_top = 564.0
+offset_right = 1135.0
+offset_bottom = 627.0
+text = "Retour"
+
+[connection signal="pressed" from="Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="Level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="Level3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="Level4" to="." method="_on_level_4_pressed"]
+[connection signal="pressed" from="LevelInfinite" to="." method="_on_level_infinite_pressed"]
+[connection signal="pressed" from="Return" to="." method="_on_button_return_pressed"]

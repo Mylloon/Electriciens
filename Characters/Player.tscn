@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bmnjkhu5284l4" path="res://assets/gentil.png" id="2_kculk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tia2a"]
-size = Vector2(32, 32)
+size = Vector2(32, 45)
 
 [sub_resource type="Animation" id="Animation_c7mrc"]
 resource_name = "down"
@@ -89,6 +89,7 @@ vframes = 4
 frame = 6
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_tia2a")
 
 [node name="RayCast2d" type="RayCast2D" parent="."]
